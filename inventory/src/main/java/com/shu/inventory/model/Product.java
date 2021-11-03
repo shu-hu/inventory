@@ -40,10 +40,13 @@ public class Product {
         return String.format("product id=%d, product name='%s', product sku='%s', create date=%s", product_id, name, sku, createdate);
     }
 
-    public Product(String name, String sku, Timestamp createdate) {
+    public Product(String name, String sku) {
         this.name = name;
         this.sku = sku;
-        this.createdate = createdate;
+    }
+
+    public Long getId(){
+        return this.product_id;
     }
 
 }

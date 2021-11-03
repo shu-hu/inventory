@@ -36,7 +36,7 @@ public class Seller {
         return String.format("seller id=%d, seller name='%s'", seller_id, name);
     }
 
-    public Seller(String name) {
-        this.name = name;
-    }
+    // public Seller(String name) {
+    //     this.name = name;
+    // }
 }
