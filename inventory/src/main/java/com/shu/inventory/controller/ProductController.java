@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping
+@CrossOrigin(origins = "*")
 public class ProductController {
     private final Logger log = LoggerFactory.getLogger(ProductController.class);
     private ProductRepository productRepository;
@@ -32,7 +33,6 @@ public class ProductController {
         this.productRepository = productRepository;
     }
     
-    @CrossOrigin(origins = "*")
     @GetMapping("/products")
     Collection<Product> products() {
         return productRepository.findAll();

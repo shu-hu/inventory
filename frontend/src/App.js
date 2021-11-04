@@ -12,9 +12,14 @@ class App extends Component {
             <div>
                 <nav className="navbar navbar-expand navbar-dark bg-dark">
                     <a href="/products" className="navbar-brand">
-                        All Products
+                        Inventory
                     </a>
                     <div className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <Link to={"/products"} className="nav-link">
+                                All Products
+                            </Link>
+                        </li>
                         <li className="nav-item">
                             <Link to={"/addproduct"} className="nav-link">
                                 Add Product

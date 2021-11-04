@@ -28,17 +28,26 @@ class Initializer implements CommandLineRunner{
 
     @Override
     public void run(String... strings) {
-        // productrepository.deleteAll();
-        // sellerrepository.deleteAll();
+        this.sellerproductrepository.deleteAll();
+        this.productrepository.deleteAll();
+        this.sellerrepository.deleteAll();
 
+        Product productA = new Product("Jurassic World Lego", "XA-SAB6-3HK4");
+        Product productB = new Product("Naruto Funko Pop", "BA-SAB6-37HH");
+        productrepository.save(productA);
+        productrepository.save(productB);
         // ArrayList<Product> products = new ArrayList<Product>( Arrays.asList(
         //     new Product("Jurassic", "XA-SAB6-3HK4"),
         //     new Product("World", "XA-SAB6-3HK4")));
         
-        // System.out.println(products);
+        // System.out.println();
 
         // productrepository.saveAll(products);
 
+        Seller sellerA = new Seller("Amazon");
+        Seller sellerB = new Seller("Target");
+        sellerrepository.save(sellerA);
+        sellerrepository.save(sellerB);
         // ArrayList<Seller> sellers = new ArrayList<Seller>( Arrays.asList(
         //     new Seller("Amazon"),
         //     new Seller("Target")));
@@ -49,33 +58,50 @@ class Initializer implements CommandLineRunner{
         System.out.println(this.productrepository.findAll());
         System.out.println(this.sellerrepository.findAll());
         
-        Long productIdA = 20L;
-        Long productIdB = 25L;
-        Long sellerA = 22L;
-        Long sellerB = 23L;
+        // Long productIdA = 20L;
+        // Long productIdB = 25L;
+        // Long sellerA = 22L;
+        // Long sellerB = 23L;
 
-        System.out.println(this.productrepository.findById(productIdB).orElse(null));
+        // System.out.println(this.productrepository.findById(productIdB).orElse(null));
 
-        this.sellerproductrepository.deleteAll();
         ArrayList<SellerProduct> sellerproducts = new ArrayList<SellerProduct>( Arrays.asList(
             new SellerProduct(
-                this.productrepository.findById(productIdA).orElse(null),
-                this.sellerrepository.findById(sellerA).orElse(null),
-                20.00,
+                productA,
+                sellerA,
+                120.00,
                 3
             ),
             new SellerProduct(
-                this.productrepository.findById(productIdB).orElse(null),
-                this.sellerrepository.findById(sellerB).orElse(null),
-                5.10,
-                2
+                productA,
+                sellerB,
+                100.00,
+                30
             ),
             new SellerProduct(
-                this.productrepository.findById(productIdA).orElse(null),
-                this.sellerrepository.findById(sellerB).orElse(null),
-                120.00,
-                13
+                productB,
+                sellerB,
+                10.00,
+                14
             )
+            // new SellerProduct(
+            //     this.productrepository.findById(productIdA).orElse(null),
+            //     this.sellerrepository.findById(sellerA).orElse(null),
+            //     20.00,
+            //     3
+            // ),
+            // new SellerProduct(
+            //     this.productrepository.findById(productIdB).orElse(null),
+            //     this.sellerrepository.findById(sellerB).orElse(null),
+            //     5.10,
+            //     2
+            // ),
+            // new SellerProduct(
+            //     this.productrepository.findById(productIdA).orElse(null),
+            //     this.sellerrepository.findById(sellerB).orElse(null),
+            //     120.00,
+            //     13
+            // )
             ));
         
         System.out.println(sellerproducts);
