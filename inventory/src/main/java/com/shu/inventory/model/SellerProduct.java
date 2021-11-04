@@ -9,10 +9,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Data
 @NoArgsConstructor
@@ -22,20 +27,32 @@ import lombok.RequiredArgsConstructor;
 public class SellerProduct implements Serializable{
 
     @EmbeddedId
-    private SellerProductPK id;
+    private SellerProductPK id = new SellerProductPK();
 
     @ManyToOne
-    @MapsId("product_id")
-    @JoinColumn(name = "PRODUCT_ID")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @MapsId("productId")
+    @JoinColumn(name = "product_id")
+    @NonNull
+    @Setter
+    @Getter
     private Product product;
 
     @ManyToOne
-    @MapsId("seller_id")
-    @JoinColumn(name = "SELLER_ID")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @MapsId("sellerId")
+    @JoinColumn(name = "seller_id")
+    @NonNull
+    @Setter
+    @Getter
     private Seller seller;  
 
     @NonNull
-    private String price;
+    @Setter
+    @Getter
+    private double price;
     @NonNull
+    @Setter
+    @Getter
     private int inventoryAmount;
 }

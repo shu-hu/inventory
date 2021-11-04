@@ -25,9 +25,6 @@ public class Seller {
     @GeneratedValue
     private Long seller_id;
 
-    @OneToMany(mappedBy = "product")
-    private Set<SellerProduct> product = new HashSet<SellerProduct>();
-
     @NonNull
     private String name;
 
@@ -36,6 +33,9 @@ public class Seller {
         return String.format("seller id=%d, seller name='%s'", seller_id, name);
     }
 
+    public Long getId(){
+        return this.seller_id;
+    }
     // public Seller(String name) {
     //     this.name = name;
     // }

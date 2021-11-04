@@ -7,9 +7,9 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class SellerProductPK implements Serializable{
-    @Column(name = "PRODUCT_ID")
-    private Long product_id;
+    @Column(name = "product_id")
+    Long productId;
 
-    @Column(name = "SELLER_ID")
-    private Long seller_id;
+    @Column(name = "seller_id")
+    Long sellerId;
 }
