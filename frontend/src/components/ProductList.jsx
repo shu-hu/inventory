@@ -70,47 +70,13 @@ const ProductList = () => {
                                     )}
                                 </li>
                             </ul>
-                            <Link className="btn btn-info" to={`/product/edit/${product.id}`}>Update</Link>
 
                             <button className="btn btn-danger ml-2" onClick={() => {
                                 handleDelete(product.id);
                             }}>Delete</button>
                         </div>
                     ))}
-                    {/* <li>Product Name: </li>
-                    <thead className="thead-dark">
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Product SKU</th>
-                            <th>Creat Date</th>
-                            <th>Seller</th>
-                            <th>Price</th>
-                            <th>Inventory Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            products.map(product => (
-                                <tr key={product.id}>
-                                    <td>{product.name}</td>
-                                    <td>{product.sku}</td>
-                                    <td>{product.createdate}</td>
-                                    <td>{sellerProducts.filter(sp => sp.product.id==product.id).map(p=> (
-                                        <p>{p.seller.name}</p>
-                                    ))}</td>
-                                    <td>{product.price}</td>
-                                    <td>{product.inventoryAmount}</td>
-                                    <td>
-                                        <Link className="btn btn-info" to={`/product/edit/${product.id}`}>Update</Link>
-
-                                        <button className="btn btn-danger ml-2" onClick={() => {
-                                            handleDelete(product.id);
-                                        }}>Delete</button>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody> */}
+                    
                 </div>
 
             </div>

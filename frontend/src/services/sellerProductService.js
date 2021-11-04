@@ -9,4 +9,8 @@ const get= (id) => {
     return http.get(`/sellerproduct?product_id=${id}`);
 }
 
-export default { getAll, get};
+const create = data => {
+    return http.post("/sellerproduct", data);
+}
+
+export default { getAll, get, create};
